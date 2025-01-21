@@ -64,3 +64,35 @@ export const userLogout=async(req,res,next)=>{
         return res.status(error.statusCode || 500).json({message:error.message || "internal server error"});
     }
 };
+
+export const userEdit = async (req, res, next) => {
+    try {
+        const userId = req.user.id; 
+        const { name, phone, address, profilepic, password } = req.body;
+
+        if (!name && !phone && !address && !profilepic && !password) {
+            return res.status(400).json({ message: "At least one field is required to update" });
+        }
+
+        // Find user
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        if (name) user.name = name;
+        if (phone) user.phone = phone;
+        if (address) user.address = address;
+        if (profilepic) user.profilepic = profilepic;
+        if (password) {
+            user.password = bcrypt.hashSync(password, 10); // Hash new password
+        }
+
+        // Save updated user
+        const updatedUser = await user.save();
+
+        return res.json({ data: updatedUser, message: "User details updated successfully" });
+    } catch (error) {
+        return res.status(error.statusCode || 500).json({ message: error.message || "Internal server error" });
+    }
+};
