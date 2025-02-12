@@ -1,0 +1,119 @@
+/* Container for all food cards */
+.food-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 4 cards per row */
+    gap: 20px; /* Space between cards */
+    padding: 20px;
+  }
+  
+  /* Individual food card */
+  .food-det-new {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    text-align: center;
+    width: 100%; 
+  height: 100%; 
+  }
+  
+  .food-det-new:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Image container */
+  .food-det-img-container {
+    width: 100%;
+  height: 200px; /* Adjust height as needed */
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  .food-det-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Food info section */
+  .food-det-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  /* Food name and counter (same row) */
+  .food-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .food-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Counter section */
+  .food-counter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .food-item-counter {
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8f8f8;
+    border-radius: 20px;
+  }
+  
+  /* Counter buttons */
+  .food-item-counter img{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  
+  .food-item-counter img:hover {
+    opacity: 0.7;
+  }
+  
+  /* Food description */
+  .food-desc {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+    text-align: left;
+  }
+  .food-counter img {
+    width: 30px;  /* Increase width */
+    height: 30px; /* Increase height */
+    cursor: pointer; /* Make it clickable */
+    border-radius: 50%;
+  }
+  .food-price img{
+    width: 12px;
+    height: 12px;
+    margin-top: 5px;
+  }
+  .food-price{
+    display:flex;
+    gap:2px;
+    font-weight: 1px solid;
+  }
